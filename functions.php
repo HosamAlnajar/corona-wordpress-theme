@@ -11,6 +11,10 @@
 define( 'CORONA_THEME_DIR', get_template_directory() );
 define( 'CORONA_THEME_URI', get_template_directory_uri() );
 
+// Javascript and CSS Paths
+define( 'CORONA_ASSETS_DIR_URI', CORONA_THEME_URI .'/assets/' );
+
+
 if ( ! function_exists( 'corona_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -48,7 +52,12 @@ if ( ! function_exists( 'corona_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'corona' ),
+			'primary' => esc_html__( 'Primary', 'corona' ),
+			'mobile' => esc_html__( 'Mobile', 'corona' ),
+			'footer_nav' => __( 'Footer Menu', 'corona' ),
+			'top_menu' => __( 'Top Menu', 'corona' ),
+
+
 		) );
 
 		/*
@@ -124,6 +133,9 @@ add_action( 'widgets_init', 'corona_widgets_init' );
  * Enqueue scripts and styles.
  */
 function corona_scripts() {
+	// Get assets directory uri
+	$assets_dir = CORONA_ASSETS_DIR_URI;
+
 	wp_enqueue_style( 'corona-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'corona-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -133,6 +145,18 @@ function corona_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	//bootstrap css/js
+	wp_enqueue_style( 'bootstrap-css-app', $assets_dir .'bootstrap/bootstrap.min.css', false, '1.0.0' );
+	wp_enqueue_script( 'bootstrap-js-app', $assets_dir .'bootstrap/bootstrap.min.js', array( 'jquery' ), '1.0.0', true );
+
+	//base css/js
+	wp_enqueue_script( 'corona-js-app', $assets_dir .'js/app.js', array( 'jquery' ), '1.0.0', true );
+	wp_enqueue_style( 'corona-css-app', $assets_dir .'css/app.css', false, '1.0.0' );
+
+
+
+
 }
 add_action( 'wp_enqueue_scripts', 'corona_scripts' );
 
@@ -155,6 +179,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Include Walker file
+ */
+require get_template_directory() . '/inc/base/walker.php';
 
 /**
  * Load Jetpack compatibility file.
