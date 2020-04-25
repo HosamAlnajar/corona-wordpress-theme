@@ -84,41 +84,17 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./src/js/app.js":
-/*!***********************!*\
-  !*** ./src/js/app.js ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./src/scss/app.scss":
-/*!***************************!*\
-  !*** ./src/scss/app.scss ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!*************************************************!*\
-  !*** multi ./src/js/app.js ./src/scss/app.scss ***!
-  \*************************************************/
+/******/ ([
+/* 0 */
+/*!******************************!*\
+  !*** multi wp-scripts start ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/create_theme/wp-content/themes/corona/src/js/app.js */"./src/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/create_theme/wp-content/themes/corona/src/scss/app.scss */"./src/scss/app.scss");
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'wp-scripts'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'start'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })
-
-/******/ });
+/******/ ]);
