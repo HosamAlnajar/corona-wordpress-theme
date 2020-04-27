@@ -5,10 +5,9 @@
 
 get_header();
 ?>
-
 <div id="primary" class="content-area">
 	<main id="main" class="site-main">
-		<div id="react-app"></div><!-- #react-app -->
+		<div id="corona-react-app" style="background: #19212D"></div>
 	</main><!-- #main -->
 </div><!-- #primary -->
 

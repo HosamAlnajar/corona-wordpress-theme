@@ -1,17 +1,10 @@
 const { render, useState } = wp.element;
+import React from 'react';
+import App from "./component/App";
 
-const Votes = () => {
-	const [votes, setVotes] = useState(0);
-	const addVote = () => {
-		setVotes(votes + 1);
-	};
-	return (
-	       <div>
-	       <h2>{votes} Votes</h2>
-	                   <p>
-	                   <button onClick={addVote}>Vote!</button>
-	                                                 </p>
-	                                                 </div>
+render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+	document.getElementById('corona-react-app')
 );
-};
-render(<Votes />, document.getElementById(`react-app`));
